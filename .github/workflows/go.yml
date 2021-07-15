@@ -27,17 +27,17 @@ jobs:
     - name: Initialize Google Cloud SDK
       uses: zxyle/publish-gae-action@master
       with:
-        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: ${{ secrets.PROJECT_ID }}
+        service_account_email: danilo@graziano.digital
+        service_account_key: 102179839364246122584
+        project_id: gothic-avenue-319909
         # An optional variables parameter can be used
-        gae_variables: ${{ secrets.GAE_VARIABLES }}
+        #gae_variables: ${{ secrets.GAE_VARIABLES }}
 
     - name: Publish app to Google App Engine
       run: |
         # This client-secret.json is converted by GCP_SA_KEY.
-        gcloud auth activate-service-account $danilo@graziano.digital --key-file=gothic-avenue-319909-1f0f50c52768.json
-        gcloud config set project $gothic-avenue-319909
+        gcloud auth activate-service-account danilo@graziano.digital --key-file=gothic-avenue-319909-1f0f50c52768.json
+        gcloud config set project gothic-avenue-319909
         gcloud -q app deploy app.yaml --promote
 
         # Suppose you need a cron task.
