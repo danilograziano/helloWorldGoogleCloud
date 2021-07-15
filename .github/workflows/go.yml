@@ -30,6 +30,7 @@ jobs:
         service_account_email: danilo@graziano.digital
         service_account_key: 102179839364246122584
         project_id: gothic-avenue-319909
+        components: google-cloud-sdk-app-engine-go
         # An optional variables parameter can be used
         #gae_variables: ${{ secrets.GAE_VARIABLES }}
 
