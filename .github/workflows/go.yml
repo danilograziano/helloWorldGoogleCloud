@@ -50,5 +50,5 @@ jobs:
       #GOOGLE_APPLICATION_CREDENTIALS environment variable. Future steps that
       #consume Default Application Credentials will automatically detect and use
       #these credentials.
-          export_default_credentials: true # optional
+      #export_default_credentials: true # optional
       
