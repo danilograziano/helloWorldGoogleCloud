@@ -24,19 +24,20 @@ jobs:
     - name: Test
       run: go test -v ./...
       
-    - name: Publish app to Google App Engine
-      # You may pin to the exact commit or the version.
-      # uses: zxyle/publish-gae-action@647a5e5538829de31fdfaad8de523573c417139f
-      uses: zxyle/publish-gae-action@v2.3.0
-      with:
-        # The service account email which will be used for authentication.
-        service_account_email: danilo@graziano.digital
-        # The service account key which will be used for authentication.
-        service_account_key: 102179839364246122584
-        # GAE project id
-        project_id: gothic-avenue-319909
-        # GAE variables to be written to the app.yaml file
-       # gae_variables: # optional
-        # Path to the app.yml, Defaults to ./app.yml
-        #gae_config_path: # optional
+          
+    - name: Setup Google Cloud SDK
+        # You may pin to the exact commit or the version.
+        # uses: mathieu-bour/setup-gcloud@3bb09468aad23fb31bd9e873e87a189d845063c3
+        uses: mathieu-bour/setup-gcloud@1.3.1
+        with:
+          # Google Cloud SDK to use. If left empty, will use the latest one. On Ubuntu runners, "local" allow to use the pre-installed version of gcloud.
+          version: # optional, default is latest
+          # The service account key to use, base64-encoded.
+          service-account-key: 102179839364246122584# optional
+          # The default Google Cloud project. You can change it later.
+          project: # optional, default is auto
+          # Install additional components (e.g. beta, gsutil, etc.)
+          components: # optional
+          # Configure Docker to interact with Google Cloud Container Registry. Use true for all repositories, or specify comma-separated registries.
+          configure-docker: # optional, default is false
       
