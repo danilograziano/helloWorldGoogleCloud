@@ -24,15 +24,19 @@ jobs:
     - name: Test
       run: go test -v ./...
       
-    - name: Google App Engine (GAE) Deploy
+    - name: Publish app to Google App Engine
       # You may pin to the exact commit or the version.
-      # uses: atRobertoFlores/gae_deploy_action@b1ff9efc841e7415ba3510bf94b23c8fb46197eb
-      uses: etereo-io/deploy-gae-action@v2.0.4
+      # uses: zxyle/publish-gae-action@647a5e5538829de31fdfaad8de523573c417139f
+      uses: zxyle/publish-gae-action@v2.3.0
       with:
-        # Service Account JSON key
-        service_account: "json/gothic-avenue-319909-1f0f50c52768.json"
-        # GAE project name
-        project_name: My First Project 
-        # No Deploy, just get GAE info
-        test: # optional
+        # The service account email which will be used for authentication.
+        service_account_email: danilo@graziano.digital
+        # The service account key which will be used for authentication.
+        service_account_key: 102179839364246122584
+        # GAE project id
+        project_id: gothic-avenue-319909
+        # GAE variables to be written to the app.yaml file
+       # gae_variables: # optional
+        # Path to the app.yml, Defaults to ./app.yml
+        #gae_config_path: # optional
       
