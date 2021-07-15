@@ -36,8 +36,8 @@ jobs:
     - name: Publish app to Google App Engine
       run: |
         # This client-secret.json is converted by GCP_SA_KEY.
-        gcloud auth activate-service-account ${{ danilo@graziano.digital }} --key-file=gothic-avenue-319909-1f0f50c52768.json
-        gcloud config set project ${{ gothic-avenue-319909 }}
+        gcloud auth activate-service-account $danilo@graziano.digital --key-file=gothic-avenue-319909-1f0f50c52768.json
+        gcloud config set project $gothic-avenue-319909
         gcloud -q app deploy app.yaml --promote
 
         # Suppose you need a cron task.
