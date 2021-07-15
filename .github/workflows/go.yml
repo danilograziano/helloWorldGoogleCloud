@@ -30,7 +30,7 @@ jobs:
       uses: etereo-io/deploy-gae-action@v2.0.4
       with:
         # Service Account JSON key
-        service_account: json/gothic-avenue-319909-1f0f50c52768.json
+        service_account: "json/gothic-avenue-319909-1f0f50c52768.json"
         # GAE project name
         project_name: My First Project 
         # No Deploy, just get GAE info
