@@ -23,20 +23,24 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-      
-    - name: Publish app to Google App Engine
-      # You may pin to the exact commit or the version.
-      # uses: zxyle/publish-gae-action@647a5e5538829de31fdfaad8de523573c417139f
-      uses: zxyle/publish-gae-action@v2.3.0
+           
+    - name: Initialize Google Cloud SDK
+      uses: zxyle/publish-gae-action@master
       with:
-        # The service account email which will be used for authentication.
-        service_account_email: danilo@graziano.digital
-        # The service account key which will be used for authentication.
-        service_account_key: 102179839364246122584
-        # GAE project id
-        project_id: gothic-avenue-319909
-        # GAE variables to be written to the app.yaml file
-       # gae_variables: # optional
-        # Path to the app.yml, Defaults to ./app.yml
-        #gae_config_path: # optional
+        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: ${{ secrets.PROJECT_ID }}
+        # An optional variables parameter can be used
+        gae_variables: ${{ secrets.GAE_VARIABLES }}
+
+    - name: Publish app to Google App Engine
+      run: |
+        # This client-secret.json is converted by GCP_SA_KEY.
+        gcloud auth activate-service-account ${{ danilo@graziano.digital }} --key-file=gothic-avenue-319909-1f0f50c52768.json
+        gcloud config set project ${{ gothic-avenue-319909 }}
+        gcloud -q app deploy app.yaml --promote
+
+        # Suppose you need a cron task.
+        gcloud -q app deploy cron.yaml
+
       
