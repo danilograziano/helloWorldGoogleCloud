@@ -36,7 +36,7 @@ jobs:
     - name: Publish app to Google App Engine
       run: |
         # This client-secret.json is converted by GCP_SA_KEY.
-        gcloud auth activate-service-account 102179839364246122584 --key-file=gothic-avenue-319909-1f0f50c52768.json
+        gcloud auth activate-service-account gothic-avenue-319909@appspot.gserviceaccount.com --key-file=gothic-avenue-319909-1f0f50c52768.json
         gcloud config set project gothic-avenue-319909
         gcloud -q app deploy app.yaml --promote
 
