@@ -27,7 +27,7 @@ jobs:
     - name: Google App Engine (GAE) Deploy
       # You may pin to the exact commit or the version.
       # uses: atRobertoFlores/gae_deploy_action@b1ff9efc841e7415ba3510bf94b23c8fb46197eb
-      uses: danilograziano/helloWorldGoogleCloud@de04c4f95aa0881f26bd97db30962b29f46ab060
+      uses: etereo-io/deploy-gae-action@v2.0.4
       with:
         # Service Account JSON key
         service_account: json/gothic-avenue-319909-1f0f50c52768.json
