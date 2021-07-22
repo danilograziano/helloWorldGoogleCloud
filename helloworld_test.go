@@ -38,7 +38,7 @@ func TestIndexHandler(t *testing.T) {
 		)
 	}
 
-	expected := "Il mio primo test di continuous deployment - secondo tentativo"
+	expected := "Il mio primo test di continuous deployment - terzo tentativo"
 	if rr.Body.String() != expected {
 		t.Errorf(
 			"unexpected body: got (%v) want (%v)",
